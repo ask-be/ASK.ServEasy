@@ -1,0 +1,299 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5E74A14B-47EB-44B2-B252-2852B3692461}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ASK.ServEasy.Windows</RootNamespace>
+    <AssemblyName>ASK.ServEasy.Windows</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\redist\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net, Version=1.2.11.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.0\lib\net35-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WeifenLuo.WinFormsUI.Docking">
+      <HintPath>..\packages\DockPanelSuite.2.6.0.1\lib\net20\WeifenLuo.WinFormsUI.Docking.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\SolutionInfo.cs">
+      <Link>SolutionInfo.cs</Link>
+    </Compile>
+    <Compile Include="Containers\ServiceContainer.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Containers\WinFormContainer.cs" />
+    <Compile Include="Log\ILoggerView.cs" />
+    <Compile Include="Log\ILogManager.cs" />
+    <Compile Include="Log\ILogMessageNotifiable.cs" />
+    <Compile Include="Log\LogManager.cs" />
+    <Compile Include="Log\LogManagerAppender.cs" />
+    <Compile Include="Log\LogMessage.cs" />
+    <Compile Include="Log\UserSettings.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\ServiceController.cs" />
+    <Compile Include="Services\ServiceInstaller.cs" />
+    <Compile Include="Services\WindowsImports.cs" />
+    <Compile Include="WinForms\AdvTreeView\BitmapHelper.cs" />
+    <Compile Include="WinForms\AdvTreeView\GifDecoder.cs" />
+    <Compile Include="WinForms\AdvTreeView\NumericTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WinForms\AdvTreeView\PerformanceAnalyzer.cs" />
+    <Compile Include="WinForms\AdvTreeView\Properties\Resources.Designer.cs" />
+    <Compile Include="WinForms\AdvTreeView\ResourceHelper.cs" />
+    <Compile Include="WinForms\AdvTreeView\StringCollectionEditor.cs" />
+    <Compile Include="WinForms\AdvTreeView\TextHelper.cs" />
+    <Compile Include="WinForms\AdvTreeView\Threading\AbortableThreadPool.cs" />
+    <Compile Include="WinForms\AdvTreeView\Threading\WorkItem.cs" />
+    <Compile Include="WinForms\AdvTreeView\Threading\WorkItemStatus.cs" />
+    <Compile Include="WinForms\AdvTreeView\TimeCounter.cs" />
+    <Compile Include="WinForms\AdvTreeView\Tree\AutoRowHeightLayout.cs" />
+    <Compile Include="WinForms\AdvTreeView\Tree\ColumnCollection.cs" />
+    <Compile Include="WinForms\AdvTreeView\Tree\DrawContext.cs" />
+    <Compile Include="WinForms\AdvTreeView\Tree\DropNodeValidatingEventArgs.cs" />
+    <Compile Include="WinForms\AdvTreeView\Tree\DropPosition.cs" />
+    <Compile Include="WinForms\AdvTreeView\Tree\EditorContext.cs" />
+    <Compile Include="WinForms\AdvTreeView\Tree\Enums.cs" />
+    <Compile Include="WinForms\AdvTreeView\Tree\FixedRowHeightLayout.cs" />
+    <Compile Include="WinForms\AdvTreeView\Tree\IncrementalSearch.cs" />
+    <Compile Include="WinForms\AdvTreeView\Tree\Input\ClickColumnState.cs" />
+    <Compile Include="WinForms\AdvTreeView\Tree\Input\ColumnState.cs" />
+    <Compile Include="WinForms\AdvTreeView\Tree\Input\InputState.cs" />
+    <Compile Include="WinForms\AdvTreeView\Tree\Input\InputWithControl.cs" />
+    <Compile Include="WinForms\AdvTreeView\Tree\Input\InputWithShift.cs" />
+    <Compile Include="WinForms\AdvTreeView\Tree\Input\NormalInputState.cs" />
+    <Compile Include="WinForms\AdvTreeView\Tree\Input\ReorderColumnState.cs" />
+    <Compile Include="WinForms\AdvTreeView\Tree\Input\ResizeColumnState.cs" />
+    <Compile Include="WinForms\AdvTreeView\Tree\IRowLayout.cs" />
+    <Compile Include="WinForms\AdvTreeView\Tree\IToolTipProvider.cs" />
+    <Compile Include="WinForms\AdvTreeView\Tree\ITreeModel.cs" />
+    <Compile Include="WinForms\AdvTreeView\Tree\ListModel.cs" />
+    <Compile Include="WinForms\AdvTreeView\Tree\NativeMethods.cs" />
+    <Compile Include="WinForms\AdvTreeView\Tree\Node.cs" />
+    <Compile Include="WinForms\AdvTreeView\Tree\NodeControlInfo.cs" />
+    <Compile Include="WinForms\AdvTreeView\Tree\NodeControls\BaseTextControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WinForms\AdvTreeView\Tree\NodeControls\BindableControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WinForms\AdvTreeView\Tree\NodeControls\DrawEventArgs.cs" />
+    <Compile Include="WinForms\AdvTreeView\Tree\NodeControls\EditableControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WinForms\AdvTreeView\Tree\NodeControls\EditEventArgs.cs" />
+    <Compile Include="WinForms\AdvTreeView\Tree\NodeControls\ExpandingIcon.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WinForms\AdvTreeView\Tree\NodeControls\InteractiveControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WinForms\AdvTreeView\Tree\NodeControls\LabelEventArgs.cs" />
+    <Compile Include="WinForms\AdvTreeView\Tree\NodeControls\NodeCheckBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WinForms\AdvTreeView\Tree\NodeControls\NodeComboBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WinForms\AdvTreeView\Tree\NodeControls\NodeControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WinForms\AdvTreeView\Tree\NodeControls\NodeControlsCollection.cs" />
+    <Compile Include="WinForms\AdvTreeView\Tree\NodeControls\NodeControlValueEventArgs.cs" />
+    <Compile Include="WinForms\AdvTreeView\Tree\NodeControls\NodeDecimalTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WinForms\AdvTreeView\Tree\NodeControls\NodeEventArgs.cs" />
+    <Compile Include="WinForms\AdvTreeView\Tree\NodeControls\NodeIcon.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WinForms\AdvTreeView\Tree\NodeControls\NodeIntegerTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WinForms\AdvTreeView\Tree\NodeControls\NodeNumericUpDown.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WinForms\AdvTreeView\Tree\NodeControls\NodePlusMinus.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WinForms\AdvTreeView\Tree\NodeControls\NodeStateIcon.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WinForms\AdvTreeView\Tree\NodeControls\NodeTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WinForms\AdvTreeView\Tree\SortedTreeModel.cs" />
+    <Compile Include="WinForms\AdvTreeView\Tree\TreeColumn.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WinForms\AdvTreeView\Tree\TreeColumnCollection.cs" />
+    <Compile Include="WinForms\AdvTreeView\Tree\TreeColumnEventArgs.cs" />
+    <Compile Include="WinForms\AdvTreeView\Tree\TreeListAdapter.cs" />
+    <Compile Include="WinForms\AdvTreeView\Tree\TreeModel.cs" />
+    <Compile Include="WinForms\AdvTreeView\Tree\TreeModelBase.cs" />
+    <Compile Include="WinForms\AdvTreeView\Tree\TreeModelEventArgs.cs" />
+    <Compile Include="WinForms\AdvTreeView\Tree\TreeNodeAdv.cs" />
+    <Compile Include="WinForms\AdvTreeView\Tree\TreeNodeAdvMouseEventArgs.cs" />
+    <Compile Include="WinForms\AdvTreeView\Tree\TreePath.cs" />
+    <Compile Include="WinForms\AdvTreeView\Tree\TreePathEventArgs.cs" />
+    <Compile Include="WinForms\AdvTreeView\Tree\TreeViewAdv.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WinForms\AdvTreeView\Tree\TreeViewAdv.Designer.cs">
+      <DependentUpon>TreeViewAdv.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinForms\AdvTreeView\Tree\TreeViewAdv.Draw.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WinForms\AdvTreeView\Tree\TreeViewAdv.Editor.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WinForms\AdvTreeView\Tree\TreeViewAdv.Input.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WinForms\AdvTreeView\Tree\TreeViewAdv.Properties.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WinForms\AdvTreeView\Tree\TreeViewAdvCancelEventArgs.cs" />
+    <Compile Include="WinForms\AdvTreeView\Tree\TreeViewAdvEventArgs.cs" />
+    <Compile Include="WinForms\AdvTreeView\Tree\TreeViewRowDrawEventArgs.cs" />
+    <Compile Include="WinForms\AutoWaitCursor.cs" />
+    <Compile Include="WinForms\FlickerFreeListView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WinForms\LogEntryDetailsDockContent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\LogEntryDetailsDockContent.Designer.cs">
+      <DependentUpon>LogEntryDetailsDockContent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinForms\LoggerDockContent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\LoggerDockContent.Designer.cs">
+      <DependentUpon>LoggerDockContent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinForms\LoggerListView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WinForms\LoggerListView.Designer.cs">
+      <DependentUpon>LoggerListView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinForms\LogEntriesDockContent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\LogEntriesDockContent.Designer.cs">
+      <DependentUpon>LogEntriesDockContent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinForms\ModuleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\ModuleForm.Designer.cs">
+      <DependentUpon>ModuleForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinForms\ThreadsDockContent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WinForms\ThreadsDockContent.Designer.cs">
+      <DependentUpon>ThreadsDockContent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinForms\ThreadTreeNode.cs" />
+    <Compile Include="WinForms\TreeViewLoggerView.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="WinForms\AdvTreeView\Properties\Resources.resx" />
+    <EmbeddedResource Include="WinForms\AdvTreeView\Tree\TreeViewAdv.resx">
+      <DependentUpon>TreeViewAdv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\LogEntryDetailsDockContent.resx">
+      <DependentUpon>LogEntryDetailsDockContent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\LoggerDockContent.resx">
+      <DependentUpon>LoggerDockContent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\LoggerListView.resx">
+      <DependentUpon>LoggerListView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\LogEntriesDockContent.resx">
+      <DependentUpon>LogEntriesDockContent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\ModuleForm.resx">
+      <DependentUpon>ModuleForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WinForms\ThreadsDockContent.resx">
+      <DependentUpon>ThreadsDockContent.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ASK.ServEasy\ASK.ServEasy.csproj">
+      <Project>{403003BB-5B68-4DBB-AB56-34CEE9EA6045}</Project>
+      <Name>ASK.ServEasy</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="WinForms\AdvTreeView\Resources\check.bmp" />
+    <Content Include="WinForms\AdvTreeView\Resources\DVSplit.cur" />
+    <Content Include="WinForms\AdvTreeView\Resources\Folder.bmp" />
+    <Content Include="WinForms\AdvTreeView\Resources\FolderClosed.bmp" />
+    <Content Include="WinForms\AdvTreeView\Resources\Leaf.bmp" />
+    <Content Include="WinForms\AdvTreeView\Resources\minus.bmp" />
+    <Content Include="WinForms\AdvTreeView\Resources\plus.bmp" />
+    <Content Include="WinForms\AdvTreeView\Resources\uncheck.bmp" />
+    <Content Include="WinForms\AdvTreeView\Resources\unknown.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <None Include="WinForms\AdvTreeView\Resources\loading_icon" />
+    <None Include="WinForms\AdvTreeView\Resources\Thumbs.db" />
+    <None Include="WinForms\AdvTreeView\Tree\ClassDiagram.cd" />
+    <None Include="WinForms\AdvTreeView\Tree\NodeControls\ClassDiagram.cd" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
