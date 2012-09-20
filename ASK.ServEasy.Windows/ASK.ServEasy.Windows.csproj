@@ -271,7 +271,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="license.txt" />
     <Content Include="WinForms\AdvTreeView\Resources\check.bmp" />
     <Content Include="WinForms\AdvTreeView\Resources\DVSplit.cur" />
     <Content Include="WinForms\AdvTreeView\Resources\Folder.bmp" />
