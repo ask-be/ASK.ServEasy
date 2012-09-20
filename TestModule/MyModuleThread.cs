@@ -9,9 +9,9 @@ namespace TestModule
 	class MyModuleThread : ModuleThread
 	{
 		public MyModuleThread(int i)
-			: base("My Module Thread -" + i,singleRun:true)
+			: base("My Module Thread -" + i,singleRun:false)
 		{
-			WatchdogDelay = TimeSpan.FromSeconds(2);
+			WatchdogDelay = TimeSpan.FromSeconds(20);
 		}
 
 		protected override void Initializing()

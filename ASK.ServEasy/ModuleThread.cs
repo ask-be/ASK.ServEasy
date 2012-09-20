@@ -430,7 +430,7 @@ namespace ASK.ServEasy
 					lock(theThreads)
 					{
 						if (theThreads.Count > 0)
-							moduleThead = theThreads[0];
+							moduleThead = theThreads.FirstOrDefault(x => x.State == RunState.Started);
 					}
 
 					if (moduleThead == null)

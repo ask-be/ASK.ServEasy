@@ -20,6 +20,16 @@
 			theController = aController;
 		}
 
+		protected override void Starting()
+		{
+			
+		}
+
+		protected override void Stopping()
+		{
+			
+		}
+
 		public ModuleInfo ModuleInfo { get; private set; }
 
 		protected override void Dispose(bool disposing)

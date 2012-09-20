@@ -5,34 +5,29 @@ namespace ASK.ServEasy.Windows.Log
 {
 	class LogManagerAppender : IAppender
 	{
-		private List<LogMessage> theMessages;
+		private Queue<LogMessage> theMessages;
 
 		public LogManagerAppender()
 		{
-			theMessages = new List<LogMessage>();
+			theMessages = new Queue<LogMessage>();
 		}
 
 		public void PushLogMessages()
 		{
-			lock(theMessages)
+			while (theMessages.Count > 0)
 			{
-				foreach(LogMessage msg in theMessages)
-					LogManager.Instance.ProcessLogMessage(msg);
-				theMessages.Clear();
+				LogManager.Instance.ProcessLogMessage(theMessages.Dequeue());
 			}
 		}
 
 		public void Close()
 		{
-			
 		}
 
 		public void DoAppend(log4net.Core.LoggingEvent logEvent)
 		{
 			LogMessage logMsg = new LogMessage(logEvent);
-
-			lock (theMessages)
-				theMessages.Add(logMsg);
+			theMessages.Enqueue(logMsg);
 		}
 
 		public string Name

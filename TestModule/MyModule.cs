@@ -24,25 +24,30 @@ namespace TestModule
 		protected override void Starting()
 		{
 			StatusMessage = "Module I'm starting...";
-		}
-		protected override void Running()
-		{
-			StatusMessage = "Module I'm running...";
-			for (int i = 0; i < 100; i++)
+			for (int i = 0; i < 5; i++)
 			{
 				if (!MustRun)
 					break;
 
 				AddThread(new MyModuleThread(i));
-				ResetWatchdog();
-				Sleep(TimeSpan.FromMilliseconds(1000));
 			}
-			
+			StatusMessage = "Module Started";
+		}
+
+		protected override void Running()
+		{
+			StatusMessage = "Module I'm running...";
+			Sleep(TimeSpan.FromMilliseconds(1000));
 			StatusMessage = "Running completed";
 		}
 		protected override void Stopping()
 		{
 			StatusMessage = "Module STOPPING...";
+
+			foreach (var moduleThread in Threads)
+			{
+				RemoveThread(moduleThread);
+			}
 		}
 	}
 }
