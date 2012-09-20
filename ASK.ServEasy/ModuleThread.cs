@@ -263,7 +263,7 @@ namespace ASK.ServEasy
 			}
 
 			// If we are already running and the thread is marked as autostart, let's start it
-			if(moduleThread.AutoStart)
+			if(moduleThread.AutoStart && State == RunState.Started)
 			{
 				theLogger.DebugFormat("Starting newly added Thread '{0}'",moduleThread.Name);
 				moduleThread.Start();

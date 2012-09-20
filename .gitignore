@@ -8,3 +8,4 @@ redist
 
 # mstest test results
 TestResults
+*.user
