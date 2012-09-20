@@ -1,8 +1,8 @@
 ﻿using System.Reflection;
 
 [assembly: AssemblyCompany("ASK sa")]
-[assembly: AssemblyProduct("ASK ServEasy")]
-[assembly: AssemblyCopyright("Copyright © ASK 2010-2011")]
+[assembly: AssemblyProduct("ASK ServEasy (log4net old)")]
+[assembly: AssemblyCopyright("Copyright © ASK 2010-2012")]
 [assembly: AssemblyTrademark("")]
 
 // Version information for an assembly consists of the following four values:
