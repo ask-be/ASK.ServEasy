@@ -45,12 +45,8 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.ServiceProcess" />
     <Reference Include="System.Windows.Forms" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
     <Reference Include="WeifenLuo.WinFormsUI.Docking">
-      <HintPath>..\packages\DockPanelSuite.2.6.0.1\lib\net20\WeifenLuo.WinFormsUI.Docking.dll</HintPath>
+      <HintPath>..\packages\DockPanelSuite.2.7.0.0\lib\net20\WeifenLuo.WinFormsUI.Docking.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -270,6 +266,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="license.txt" />
     <Content Include="WinForms\AdvTreeView\Resources\check.bmp" />
     <Content Include="WinForms\AdvTreeView\Resources\DVSplit.cur" />
     <Content Include="WinForms\AdvTreeView\Resources\Folder.bmp" />
