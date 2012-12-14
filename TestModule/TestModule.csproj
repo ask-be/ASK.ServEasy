@@ -60,6 +60,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ASK.ServEasy.Windows\ASK.ServEasy.Windows.csproj">
+      <Project>{5e74a14b-47eb-44b2-b252-2852b3692461}</Project>
+      <Name>ASK.ServEasy.Windows</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ASK.ServEasy\ASK.ServEasy.csproj">
       <Project>{403003BB-5B68-4DBB-AB56-34CEE9EA6045}</Project>
       <Name>ASK.ServEasy</Name>
