@@ -124,7 +124,9 @@ namespace ASK.ServEasy
 
 			State = RunState.Initializing;
 			WatchdogEnabled = true; // Watchdog enabled by default
+
 			Initializing();
+			//Ensure MustRun has not been changed during Initialisation phase
 			MustRun = false;
 			State = RunState.Stopped;
 		}
@@ -142,7 +144,9 @@ namespace ASK.ServEasy
 
 			theLogger.InfoFormat("Starting ModuleThread '{0}'...",Name);
 
+			ResetWatchdog();
 			MustRun = true;
+			
 			State = RunState.Starting;
 
 			theThread = new Thread(WorkerThreadProc);
