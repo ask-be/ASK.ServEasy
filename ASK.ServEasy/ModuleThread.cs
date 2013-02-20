@@ -113,7 +113,7 @@ namespace ASK.ServEasy
 			}
 		}
 
-		protected bool MustRun { get; private set; }
+		internal protected bool MustRun { get; private set; }
 
 		internal bool WatchdogEnabled { get; private set; }
 		internal void Initialize()
@@ -123,7 +123,9 @@ namespace ASK.ServEasy
 				return;
 
 			State = RunState.Initializing;
+			WatchdogEnabled = true; // Watchdog enabled by default
 			Initializing();
+			MustRun = false;
 			State = RunState.Stopped;
 		}
 
@@ -332,7 +334,7 @@ namespace ASK.ServEasy
 		{
 			if(Environment.OSVersion.Platform.ToString() == "Win32NT")
 				return Win32.Impersonate(aUserName, aDomain, aPassword);
-			theLogger.WarnFormat("Impersonification is not supported under Linux/MacOSX");
+			theLogger.WarnFormat("Impersonation is not supported under Linux/MacOSX");
 			return null;
 		}
 
@@ -360,44 +362,53 @@ namespace ASK.ServEasy
 		/// </summary>
 		private void WorkerThreadProc()
 		{
-			ThreadStarting();
-
-			while (MustRun)
+			try
 			{
-				WatchdogEnabled = false;
 
-				// Wait for Timer event
-				if(theSchedule != null)
-					theEvent.WaitOne();
 
-				WatchdogEnabled = true;
+				ThreadStarting();
 
-				if(!MustRun)
-					break;
-
-				ThreadRunning();
-
-				// if singleRun Let's break immediatly
-				if (!MustRun || isSingleRun)
-					break;
-
-				if(theSchedule == null)
+				while (MustRun)
 				{
-					// Sleep at least some miliseconds before calling Running again
-					Sleep(TimeSpan.FromMilliseconds(100));
+					WatchdogEnabled = false;
+
+					// Wait for Timer event
+					if (theSchedule != null)
+						theEvent.WaitOne();
+
+					WatchdogEnabled = true;
+
+					if (!MustRun)
+						break;
+
+					ThreadRunning();
+
+					// if singleRun Let's break immediately
+					if (!MustRun || isSingleRun)
+						break;
+
+					if (theSchedule == null)
+					{
+						// Sleep at least some milliseconds before calling Running again
+						Sleep(TimeSpan.FromMilliseconds(100));
+					}
+					else
+					{
+						// Add some seconds to ensure that it will not run too fast
+						theLastRun = DateTime.Now.AddSeconds(1);
+						RescheduleTimer();
+					}
 				}
-				else
-				{
-					// Add some seconds to ensure that it will not run too fast
-					theLastRun = DateTime.Now.AddSeconds(1); 
-					RescheduleTimer();
-				}
+
+				ThreadStopping();
+
+				if ((ParentThread != null) && (isSingleRun))
+					ParentThread.RemoveThread(this);
 			}
-
-			ThreadStopping();
-
-			if((ParentThread != null)&&(isSingleRun))
-				ParentThread.RemoveThread(this);
+			catch (Exception)
+			{
+				theLogger.Warn("Module Thread stopped unexpectedly");
+			}
 		}
 
 		private void ThreadRunning()
@@ -449,6 +460,7 @@ namespace ASK.ServEasy
 			catch(Exception ex)
 			{
 				theLogger.Error("Error while stopping",ex);
+				throw;
 			}
 		}
 		private void ThreadStarting()
@@ -485,8 +497,8 @@ namespace ASK.ServEasy
 			}
 			catch(Exception ex)
 			{
-				MustRun = false;
 				theLogger.Error("Error while Starting Thread",ex);
+				throw;
 			}
 		}
 

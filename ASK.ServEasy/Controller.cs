@@ -58,7 +58,7 @@ namespace ASK.ServEasy
 
 		private static void CheckThread(ModuleThread aThread)
 		{
-			if ((aThread.WatchdogEnabled) && (aThread.State == RunState.Started))
+			if (aThread.WatchdogEnabled && aThread.MustRun)
 			{
 				theLogger.DebugFormat("Watchdog test on thread '{0}'", aThread.Name);
 				if (DateTime.Now - aThread.LastWatchdogReset > aThread.WatchdogDelay)
