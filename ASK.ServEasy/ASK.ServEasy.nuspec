@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>ASK.ServEasy</id>
+    <version>3.999.0.0</version>
+    <title>ASK.ServEasy</title>
+    <authors>ASK sa</authors>
+    <owners>ASK sa</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Description</description>
+    <copyright>Copyright © ASK 2010-2013</copyright>
+    <dependencies>
+      <dependency id="log4net" version="2.0.0" />
+    </dependencies>
+  </metadata>
+</package>
