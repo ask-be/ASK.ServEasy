@@ -14,7 +14,7 @@
     <copyright>Copyright ASK and contributors 2000-2014</copyright>
     <tags>Windows Service, Background</tags>
     <dependencies>
-      <dependency id="ASK.SearvEasy" />
+      <dependency id="ASK.ServEasy" />
     </dependencies>
   </metadata>
 </package>
