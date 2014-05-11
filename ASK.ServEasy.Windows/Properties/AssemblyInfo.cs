@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("ASK.ServEasy.Windows")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Framework to ease developments of Windows Services based on ASK.ServEasy")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCulture("")]
 
