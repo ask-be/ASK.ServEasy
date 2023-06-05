@@ -11,10 +11,12 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>$description$</description>
     <releaseNotes>First public release</releaseNotes>
-    <copyright>Copyright ASK and contributors 2000-2014</copyright>
+    <copyright>Copyright ASK and contributors 2000-2023</copyright>
     <tags>Windows Service, Background</tags>
     <dependencies>
-      <dependency id="ASK.ServEasy" />
+      <dependency id="ASK.ServEasy" version="4.0.2.0" />
+      <dependency id="DockPanelSuite" version="3.1.0" />
+      <dependency id="DockPanelSuite.ThemeVS2005" version="3.1.0" />
     </dependencies>
   </metadata>
 </package>
