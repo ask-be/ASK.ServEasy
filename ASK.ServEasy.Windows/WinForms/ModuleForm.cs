@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Web.UI;
 using System.Windows.Forms;
 using ASK.ServEasy.Windows.Containers;
 using ASK.ServEasy.Windows.Log;
@@ -19,6 +20,7 @@ namespace ASK.ServEasy.Windows.WinForms
 		{
 			isClosing = false;
 			InitializeComponent();
+			theDockPanel.Theme = new VS2005Theme();
 		}
 
 		private void ModuleForm_Load(object sender, EventArgs e)
