@@ -31,7 +31,7 @@ namespace ASK.ServEasy.Windows.WinForms
 				theServiceInstaller = new ServiceInstaller(ModuleContainer.Module.ModuleInfo);
 				RefreshServiceMenuButtons();
 			}
-			catch(Exception ex)
+			catch(Exception)
 			{
 				uninstallWindowsServiceToolStripMenuItem.Enabled = false;
 				installAsWindowsServiceToolStripMenuItem.Enabled = false;
